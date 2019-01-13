@@ -1,0 +1,13 @@
+
+name: Legionair,
+count: 80,
+size: 2,
+hp: 3,
+defence_skill: 6,
+armor: 8,
+shield: 8,
+attack_skill: 6,
+weapon_type: WeaponType,
+speed: 10,
+cost_recruit: 300,
+cost_upkeep: 50

@@ -1,0 +1,16 @@
+[package]
+name = "At_the_gates"
+version = "0.1.0"
+authors = ["qfeys <qfeys@skynet.be>"]
+
+[dependencies]
+gfx_core = "*"
+gfx_device_gl = "*"
+gfx_window_glutin = "*"
+gfx = "*"
+glutin = "*"
+collision = "*"
+cgmath = "*"
+rand = "*"
+rusttype = "*"
+image = "*"

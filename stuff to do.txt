@@ -1,0 +1,11 @@
+In order to show a soldier:
+	1)	Load the mesh with the mesh_manager
+	2)	Load the unit with the mesh_manager?
+	3)	Make a scene
+	4)	Make sure the camera works
+	5)	???
+
+
+	1) Load all units at the same time
+		Put their meshes in a single meshManager
+		Put their other info in somethign else
