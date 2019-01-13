@@ -20,20 +20,20 @@ impl Battlefield {
         let mut battlefield = Battlefield {
             indivs,
             map_size: Size2 { w: 5, h: 5 },
-            next_indiv_id : 0,
+            next_indiv_id: 0,
         };
         for i in 0..5 {
             for j in 0..5 {
-            battlefield.add_indiv_at(Position::new(i as f64, j as f64));
+                battlefield.add_indiv_at(Position::new(i as f64, j as f64));
             }
         }
         battlefield
     }
 
-    fn add_indiv_at(&mut self, pos: Position){
+    fn add_indiv_at(&mut self, pos: Position) {
         let id = self.next_indiv_id;
-        self.add_indiv(&Indiv{
-            id: IndivId { id  },
+        self.add_indiv(&Indiv {
+            id: IndivId { id },
             pos,
             rot: Rad(0.0),
             player_id: 0, // Replace by PlayerID?

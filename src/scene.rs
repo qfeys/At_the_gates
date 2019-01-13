@@ -121,6 +121,7 @@ impl Scene {
             },
         );
         context.set_mvp(m);
+        context.set_basic_color([1.0, 1.0, 1.0, 1.0]);
         context.draw_mesh(&mesh);
     }
 
