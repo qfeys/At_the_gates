@@ -1,7 +1,5 @@
 use cgmath::{Vector2, Vector3};
 
-pub use core::types::Size2;
-
 #[derive(Copy, Clone, Debug)]
 pub struct WorldPos {
     pub v: Vector3<f64>,
@@ -40,4 +38,10 @@ pub struct Speed {
 #[derive(Copy, Clone, Debug)]
 pub struct WorldDistance {
     pub n: f32,
+}
+
+#[derive(Clone, Copy, Debug)]
+pub struct Size2 {
+    pub w: i32,
+    pub h: i32,
 }

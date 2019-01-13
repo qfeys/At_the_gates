@@ -43,3 +43,18 @@ where
         .unwrap();
     view
 }
+
+pub fn create_flat_texture(
+    context: &mut Context,
+    size: Size2,
+    color: [u8; 4],
+) -> ShaderResourceView<gfx_gl::Resources, [f32; 4]> {
+    let mut v = Vec::new();
+    for i in 0..(size.w * size.h) {
+        v.push(color[0]);
+        v.push(color[1]);
+        v.push(color[2]);
+        v.push(color[3]);
+    }
+    load_texture_raw(context.factory_mut(), size, &v)
+}

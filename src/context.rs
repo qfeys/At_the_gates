@@ -52,8 +52,7 @@ fn new_shader(
         .link_program(
             vertex_shader(api).as_bytes(),
             fragment_shader(api).as_bytes(),
-        )
-        .unwrap()
+        ).unwrap()
 }
 
 fn new_pso(

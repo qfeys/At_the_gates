@@ -9,7 +9,7 @@ use geom;
 use glutin::{
     self, KeyboardInput, MouseButton, MouseScrollDelta, TouchPhase, VirtualKeyCode, WindowEvent,
 };
-use mesh::MeshId;
+use mesh::{Mesh, MeshId};
 use mesh_manager::MeshManager;
 use std::cmp::{Ord, Ordering};
 use std::collections::{BTreeMap, HashMap, HashSet};
@@ -96,7 +96,32 @@ impl Scene {
                 self.add_indiv(*indiv_id, node);
             }
         }
+        self.draw_statics(context, battlefield);
         self.draw_scene_nodes(context);
+    }
+
+    fn draw_statics(&self, context: &mut Context, battlefield: &Battlefield) {
+        let m = self.camera.mat();
+
+        let mesh = Mesh::plane(
+            context,
+            WorldPos {
+                v: Vector3 {
+                    x: 0.0,
+                    y: 0.0,
+                    z: 0.0,
+                },
+            },
+            WorldPos {
+                v: Vector3 {
+                    x: battlefield.map_size.w as f64,
+                    y: battlefield.map_size.h as f64,
+                    z: 0.0,
+                },
+            },
+        );
+        context.set_mvp(m);
+        context.draw_mesh(&mesh);
     }
 
     fn draw_scene_nodes(&self, context: &mut Context) {
