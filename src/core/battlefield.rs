@@ -10,6 +10,7 @@ pub struct Battlefield {
     indivs: HashMap<IndivId, Indiv>,
     //companies: HashMap<CompId, Vec<indivId>>,
     pub map_size: Size2,
+    next_indiv_id: u32,
 }
 
 impl Battlefield {
@@ -19,17 +20,28 @@ impl Battlefield {
         let mut battlefield = Battlefield {
             indivs,
             map_size: Size2 { w: 5, h: 5 },
+            next_indiv_id : 0,
         };
-        battlefield.add_indiv(&Indiv {
-            id: IndivId { id: 0 },
-            pos: Position::new(0.0, 0.0),
+        for i in 0..5 {
+            for j in 0..5 {
+            battlefield.add_indiv_at(Position::new(i as f64, j as f64));
+            }
+        }
+        battlefield
+    }
+
+    fn add_indiv_at(&mut self, pos: Position){
+        let id = self.next_indiv_id;
+        self.add_indiv(&Indiv{
+            id: IndivId { id  },
+            pos,
             rot: Rad(0.0),
             player_id: 0, // Replace by PlayerID?
             type_id: UnitTypeId { id: 0 },
             hp: 0,
             xp: 0,
         });
-        battlefield
+        self.next_indiv_id += 1;
     }
 
     fn add_indiv(&mut self, indiv: &Indiv) {

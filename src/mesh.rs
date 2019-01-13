@@ -53,7 +53,7 @@ impl Mesh {
         };
         let vertices = [v1, v2, v3, v4];
         let indices: [u16; 6] = [0, 1, 2, 2, 0, 3];
-        let texture = create_flat_texture(context, Size2 { w: 2, h: 2 }, [255, 0, 255, 255]);
+        let texture = create_flat_texture(context, Size2 { w: 8, h: 8 }, [255, 255, 255, 120]);
 
         Mesh::new(context, &vertices, &indices, texture)
     }

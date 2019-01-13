@@ -49,7 +49,6 @@ impl Visualizer {
 
     pub fn new_gui(&mut self, gamestate: &GameState) {
         self.context.clear();
-        println!("new gui: {:?}", *gamestate);
         self.gui = Gui::new(&mut self.context, gamestate);
     }
 
