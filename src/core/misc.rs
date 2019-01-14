@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use rand::{thread_rng, Rng};
 use std::cmp;
 use std::sync::mpsc::Receiver;

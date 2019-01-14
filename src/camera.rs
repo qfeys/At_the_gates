@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use cgmath::{perspective, Angle, Array, Matrix3, Matrix4, Rad, Vector3};
 use core::misc::clamp;
 use std::f32::consts::PI;

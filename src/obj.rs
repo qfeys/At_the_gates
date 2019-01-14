@@ -117,6 +117,7 @@ impl Model {
         }
     }
 
+    #[allow(dead_code)]
     pub fn is_wire(&self) -> bool {
         !self.lines.is_empty()
     }

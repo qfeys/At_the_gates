@@ -50,7 +50,7 @@ pub fn create_flat_texture(
     color: [u8; 4],
 ) -> ShaderResourceView<gfx_gl::Resources, [f32; 4]> {
     let mut v = Vec::new();
-    for i in 0..(size.w * size.h) {
+    for _i in 0..(size.w * size.h) {
         v.push(color[0]);
         v.push(color[1]);
         v.push(color[2]);

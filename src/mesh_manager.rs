@@ -17,10 +17,10 @@ impl MeshManager {
         }
     }
 
-    pub fn set(&mut self, id: MeshId, mesh: Mesh) {
-        let index = id.id as usize;
-        self.meshes[index] = mesh;
-    }
+    // pub fn set(&mut self, id: MeshId, mesh: Mesh) {
+    //     let index = id.id as usize;
+    //     self.meshes[index] = mesh;
+    // }
 
     pub fn get(&self, id: MeshId) -> &Mesh {
         let index = id.id as usize;

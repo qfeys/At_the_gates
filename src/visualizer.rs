@@ -6,11 +6,10 @@ use std::fs::metadata;
 use std::sync::mpsc::{channel, Receiver, Sender};
 use std::{process, thread, time};
 use types::Time;
+use ui::gui::Gui;
+use ui::screen::{EventStatus, Screen, ScreenCommand, ScreenType};
 use GameCommand;
 use GameState;
-use UI::gui::Gui;
-use UI::main_menu_screen::MainMenuScreen;
-use UI::screen::{EventStatus, Screen, ScreenCommand, ScreenType};
 
 fn check_assets_dir() {
     if let Err(e) = metadata("assets") {
@@ -60,7 +59,7 @@ impl Visualizer {
         let max_fps = 60;
         let max_frame_time = time::Duration::from_millis(1000 / max_fps);
         let start_frame_time = time::Instant::now();
-        let dtime = self.update_time();
+        let _dtime = self.update_time();
         self.draw(gamestate);
         self.handle_events();
         self.handle_commands(tx);
@@ -125,12 +124,14 @@ impl Visualizer {
                         self.popups.clear();
                     }
                     ScreenType::Menu => {
-                        tx.send(GameCommand::ChangeState(GameState::Menu));
+                        assert!(tx.send(GameCommand::ChangeState(GameState::Menu)).is_ok());
                     }
                     ScreenType::Battle => {
-                        tx.send(GameCommand::ChangeState(GameState::Battle(
-                            Battlefield::new(),
-                        )));
+                        assert!(
+                            tx.send(GameCommand::ChangeState(GameState::Battle(
+                                Battlefield::new(),
+                            ))).is_ok()
+                        );
                     }
                 },
                 ScreenCommand::PushPopup(popup) => {

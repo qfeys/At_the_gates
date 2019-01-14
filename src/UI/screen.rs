@@ -1,14 +1,14 @@
 use context::Context;
 use glutin::WindowEvent;
-use types::Time;
-use GameState;
 
+#[allow(dead_code)]
 pub enum ScreenCommand {
     ChangeScreen(ScreenType),
     PopPopup,
     PushPopup(Box<Screen>),
 }
 
+#[allow(dead_code)]
 #[derive(Clone, Copy, PartialEq, Debug)]
 pub enum ScreenType {
     Menu,

@@ -1,4 +1,5 @@
-use cgmath::{Angle, InnerSpace, Rad, Vector2, Vector3};
+#![allow(dead_code)]
+use cgmath::{Angle, Rad, Vector3};
 use std::f32::consts::PI;
 // use core::position::{ExactPos, MapPos, SlotId, get_slots_count};
 use core::position::Position as MapPos;

@@ -95,8 +95,8 @@ pub fn load_object_mesh<P: AsRef<Path>>(context: &mut Context, path: &P) -> Opti
 
 /// Load the data (not the meshes) of a single unit.
 pub fn load_unit_data<P: AsRef<Path>>(
-    context: &mut Context,
-    path: &P,
+    _context: &mut Context,
+    _path: &P,
     name: String,
 ) -> Option<UnitType> {
     Some(UnitType {

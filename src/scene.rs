@@ -15,7 +15,7 @@ use std::cmp::{Ord, Ordering};
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::f32::consts::PI;
 use types::{ScreenPos, Size2, WorldPos};
-use UI::screen::{EventStatus, ScreenCommand, ScreenType};
+use ui::screen::{EventStatus, ScreenCommand, ScreenType};
 
 const ZOOM_LEVEL: f32 = 0.3;
 
@@ -154,6 +154,7 @@ impl Scene {
         }
     }
 
+    #[allow(dead_code)]
     pub fn indiv_id_to_node_id_opt(&self, indiv_id: IndivId) -> Option<NodeId> {
         self.indiv_id_to_node_id_map.get(&indiv_id).cloned()
     }
@@ -170,6 +171,7 @@ impl Scene {
         &self.object_id_to_node_id_map[&object_id]
     } */
 
+    #[allow(dead_code)]
     pub fn remove_node(&mut self, node_id: NodeId) {
         self.nodes.remove(&node_id).unwrap();
         for layer in self.transparent_node_ids.values_mut() {
@@ -193,6 +195,7 @@ impl Scene {
         node_id
     }
 
+    #[allow(dead_code)]
     pub fn remove_indiv(&mut self, indiv_id: IndivId) {
         assert!(self.indiv_id_to_node_id_map.contains_key(&indiv_id));
         let node_id = self.indiv_id_to_node_id(indiv_id);
@@ -231,6 +234,7 @@ impl Scene {
         node_id
     } */
 
+    #[allow(dead_code)]
     pub fn nodes(&self) -> &HashMap<NodeId, SceneNode> {
         &self.nodes
     }
@@ -239,6 +243,7 @@ impl Scene {
         &self.transparent_node_ids
     }
 
+    #[allow(dead_code)]
     pub fn node(&self, node_id: NodeId) -> &SceneNode {
         &self.nodes[&node_id]
     }
@@ -264,7 +269,7 @@ impl Scene {
                 self.handle_event_mouse_move(context, pos);
             }
             WindowEvent::MouseInput {
-                state: Released,
+                state: glutin::ElementState::Released,
                 button: MouseButton::Left,
                 ..
             } => {
@@ -276,7 +281,7 @@ impl Scene {
             WindowEvent::KeyboardInput {
                 input:
                     KeyboardInput {
-                        state: Released,
+                        state: glutin::ElementState::Released,
                         virtual_keycode: Some(key),
                         ..
                     },
@@ -397,7 +402,7 @@ impl Scene {
         }
     }
 
-    fn handle_event_lmb_release(&mut self, context: &mut Context) {
+    fn handle_event_lmb_release(&mut self, _context: &mut Context) {
         /*
         let pick_result = self.pick_tile(context);
         if let Some(button_id) = self.gui.button_manager.get_clicked_button_id(context) {

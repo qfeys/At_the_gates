@@ -10,7 +10,6 @@ extern crate image;
 extern crate rand;
 extern crate rusttype;
 
-mod UI;
 mod camera;
 mod context;
 mod core;
@@ -24,9 +23,9 @@ mod pipeline;
 mod scene;
 mod texture;
 mod types;
+mod ui;
 mod visualizer;
 
-use scene::Scene;
 use std::sync::mpsc::{channel, Receiver};
 use visualizer::Visualizer;
 

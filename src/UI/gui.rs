@@ -3,11 +3,11 @@ use context::Context;
 use glutin::{self, MouseButton, VirtualKeyCode, WindowEvent};
 use std::collections::HashMap;
 use types::Size2;
+use ui::button::{ButtonId, ButtonManager};
+use ui::main_menu_screen;
+use ui::screen::{EventStatus, ScreenCommand, ScreenType};
+use ui::tactical_screen;
 use GameState;
-use UI::button::{Button, ButtonId, ButtonManager};
-use UI::main_menu_screen;
-use UI::screen::{EventStatus, Screen, ScreenCommand, ScreenType};
-use UI::tactical_screen;
 
 //#[derive(Clone, Debug)]
 pub struct Gui {
@@ -19,7 +19,7 @@ impl Gui {
     pub fn new(context: &mut Context, gamestate: &GameState) -> Gui {
         match *gamestate {
             GameState::Menu => main_menu_screen::main_menu(context),
-            GameState::Battle(_) => tactical_screen::TacticalScreen(context),
+            GameState::Battle(_) => tactical_screen::tactical_screen(context),
         }
     }
 
@@ -89,20 +89,13 @@ impl Gui {
     }
 }
 
-/// Check if this was a tap or swipe
-pub fn is_tap(context: &Context) -> bool {
-    let mouse = context.mouse();
-    let diff = mouse.pos.v - mouse.last_press_pos.v;
-    let tolerance = 20; // TODO: read from config file
-    diff.x.abs() < tolerance && diff.y.abs() < tolerance
-}
-
 pub fn basic_text_size(context: &Context) -> f32 {
     // TODO: use different value for android
     let lines_per_screen_h = 14.0;
     (context.win_size().h as f32) / lines_per_screen_h
 }
 
+#[allow(dead_code)]
 pub fn small_text_size(context: &Context) -> f32 {
     basic_text_size(context) / 2.0
 }

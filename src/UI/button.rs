@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use cgmath::{Matrix4, Vector3};
 use context::Context;
 use mesh::Mesh;
@@ -5,8 +6,8 @@ use pipeline::Vertex;
 use std::collections::HashMap;
 use texture::load_texture_raw;
 use types::{ScreenPos, Size2};
-use UI::gui::{basic_text_size, get_2d_screen_matrix, small_text_size};
-use UI::text;
+use ui::gui::{basic_text_size, get_2d_screen_matrix, small_text_size};
+use ui::text;
 
 #[derive(PartialEq, Eq, Hash, Clone, Copy, Debug)]
 pub struct ButtonId {

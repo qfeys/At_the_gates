@@ -1,10 +1,9 @@
 use context::Context;
-use fs;
 use gfx;
 use gfx::traits::FactoryExt;
 use gfx_gl;
 use pipeline::Vertex;
-use texture::{create_flat_texture, load_texture, Texture};
+use texture::{create_flat_texture, Texture};
 use types::{Size2, WorldPos};
 
 #[derive(PartialOrd, Ord, PartialEq, Eq, Hash, Clone, Copy, Debug)]

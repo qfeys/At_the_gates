@@ -14,7 +14,7 @@ use std::sync::mpsc::Sender;
 use std::time;
 use texture::load_texture_raw;
 use types::{ScreenPos, Size2, Time};
-use UI::screen::ScreenCommand;
+use ui::screen::ScreenCommand;
 
 fn duration_to_time(duration: time::Duration) -> Time {
     let seconds = duration.as_secs() as f32;
